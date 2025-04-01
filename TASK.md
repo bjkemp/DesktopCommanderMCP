@@ -17,13 +17,13 @@ This document tracks current and completed tasks for the Desktop Commander MCP p
 - [ ] Add WSL (Windows Subsystem for Linux) integration (2025-04-01)
 
 ### Feature Development
-- [ ] Implement Git-based file editing for efficient diff and patch operations (2025-04-01)
-  - [ ] Research Git command-line options for diffing and patching
-  - [ ] Implement gitBasedReplace function in edit.ts
-  - [ ] Add smart selection between approaches based on file size
-  - [ ] Add comprehensive error handling with fallbacks
-  - [ ] Create unit tests for the new functionality
-  - [ ] Document the new approach in code comments
+- [x] Implement Git-based file editing for efficient diff and patch operations (2025-04-01)
+  - [x] Research Git command-line options for diffing and patching
+  - [x] Implement gitBasedReplace function in edit.ts
+  - [x] Add smart selection between approaches based on file size
+  - [x] Add comprehensive error handling with fallbacks
+  - [x] Create unit tests for the new functionality
+  - [x] Document the new approach in code comments
 - [ ] Implement SSH support for remote server execution (2025-04-01)
 - [ ] Add file diff visualization capabilities (2025-04-01)
 - [ ] Improve search performance for large codebases (2025-04-01)

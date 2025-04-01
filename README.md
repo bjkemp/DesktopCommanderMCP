@@ -19,6 +19,7 @@ Short version. Two key things. Terminal commands and diff based file editing.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Handling Long-Running Commands](#handling-long-running-commands)
+- [Project Documentation](#project-documentation)
 - [Work in Progress and TODOs](#work-in-progress-and-todos)
 - [Media links](#media)
 - [Testimonials](#testimonials)
@@ -167,6 +168,16 @@ This project extends the MCP Filesystem Server to enable:
 
 Created as part of exploring Claude MCPs: https://youtube.com/live/TlbjFDbl5Us
 
+## Project Documentation
+
+The project includes the following documentation files:
+
+- **[PLANNING.md](PLANNING.md)** - Overview of the project architecture, coding style, and development guidelines
+- **[TASK.md](TASK.md)** - Current and upcoming development tasks, with status tracking
+- **[FAQ.md](FAQ.md)** - Comprehensive answers to frequently asked questions about the project
+
+For developers interested in contributing to the project, please review the PLANNING.md and TASK.md files to understand the project structure and current development priorities.
+
 ## DONE
 - **28-03-2025 Fixed "Watching /" JSON error** - Implemented custom stdio transport to handle non-JSON messages and prevent server crashes
 - **25-03-2025 Better code search** ([merged](https://github.com/wonderwhy-er/ClaudeDesktopCommander/pull/17)) - Enhanced code exploration with context-aware results
@@ -235,6 +246,21 @@ We welcome contributions from the community! Whether you've found a bug, have a 
 - **Have a feature idea?** Submit a feature request in the issues section
 - **Want to contribute code?** Fork the repository, create a branch, and submit a pull request
 - **Questions or discussions?** Start a discussion in the GitHub Discussions tab
+
+### Development Guidelines
+
+Before contributing code, please review:
+
+1. **[PLANNING.md](PLANNING.md)** - Understand the project architecture and coding standards
+2. **[TASK.md](TASK.md)** - Check current tasks and future roadmap to align your contribution
+
+We follow these general contribution guidelines:
+
+- Write clean, well-documented TypeScript code
+- Add appropriate error handling
+- Ensure cross-platform compatibility (Windows, macOS, Linux)
+- Add tests for new features
+- Update documentation to reflect changes
 
 All contributions, big or small, are greatly appreciated!
 

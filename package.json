@@ -30,6 +30,8 @@
     "setup": "npm install && npm run build && node setup-claude-server.js",
     "prepare": "npm run build",
     "test": "node test/test.js",
+    "test:edit": "node test/edit-test.js",
+    "test:all": "npm run test && npm run test:edit",
     "test:watch": "nodemon test/test.js",
     "link:local": "npm run build && npm link",
     "unlink:local": "npm unlink",

@@ -125,7 +125,10 @@ The server provides these tool categories:
 - `search_code`: Recursive ripgrep based text and code search
 
 ### Edit Tools
-- `edit_block`: Apply surgical text replacements (best for changes <20% of file size)
+- `edit_block`: Apply surgical text replacements using a Git-based diffing approach for optimal performance
+  - For small files (<1MB): Uses fast in-memory replacement
+  - For large files (≥1MB): Uses Git's efficient diff and patch algorithms
+  - Automatically selects the best approach based on file size
 - `write_file`: Complete file rewrites (best for large changes >20% or when edit_block fails)
 
 Search/Replace Block Format:
@@ -179,6 +182,7 @@ The project includes the following documentation files:
 For developers interested in contributing to the project, please review the PLANNING.md and TASK.md files to understand the project structure and current development priorities.
 
 ## DONE
+- **01-04-2025 Implemented Git-based file editing** - Added smart approach for efficient file editing using Git's diff/patch capabilities for large files
 - **28-03-2025 Fixed "Watching /" JSON error** - Implemented custom stdio transport to handle non-JSON messages and prevent server crashes
 - **25-03-2025 Better code search** ([merged](https://github.com/wonderwhy-er/ClaudeDesktopCommander/pull/17)) - Enhanced code exploration with context-aware results
 

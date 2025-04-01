@@ -143,16 +143,27 @@ export async function gitBasedReplace(filePath: string, block: SearchReplace): P
 }
 
 /**
- * Parses an edit block with the format:
- * filepath
+ * Parses an edit block with a VERY SPECIFIC format. IMPORTANT: Follow this EXACTLY.
+ * 
+ * Format Requirements:
+ * 1. FIRST LINE: Full absolute file path (NO ~ shortcut)
+ * 2. NEXT LINE: Exactly '<<<<<<< SEARCH' (case-sensitive)
+ * 3. NEXT LINES: Exact content to search for
+ * 4. NEXT LINE: Exactly '=======' (case-sensitive)
+ * 5. NEXT LINES: Exact replacement content
+ * 6. LAST LINE: Exactly '>>>>>>> REPLACE' (case-sensitive)
+ * 
+ * Example:
+ * /full/path/to/file.txt
  * <<<<<<< SEARCH
- * content to find
+ * original text to replace
  * =======
- * new content
+ * new replacement text
  * >>>>>>> REPLACE
  * 
- * @param blockContent - Edit block content
+ * @param blockContent - Edit block content following EXACT format
  * @returns Object with file path and search/replace content
+ * @throws Error if format is not precisely followed
  */
 export async function parseEditBlock(blockContent: string): Promise<{
     filePath: string;
@@ -160,16 +171,16 @@ export async function parseEditBlock(blockContent: string): Promise<{
 }> {
     const lines = blockContent.split('\n');
     
-    // First line should be the file path
+    // First line should be the FULL absolute file path
     const filePath = lines[0].trim();
     
-    // Find the markers
+    // Find the markers - THESE MUST BE EXACT
     const searchStart = lines.indexOf('<<<<<<< SEARCH');
     const divider = lines.indexOf('=======');
     const replaceEnd = lines.indexOf('>>>>>>> REPLACE');
     
     if (searchStart === -1 || divider === -1 || replaceEnd === -1) {
-        throw new Error('Invalid edit block format - missing markers');
+        throw new Error('Invalid edit block format. REQUIRED: Exact "<<<<<<< SEARCH", "=======", and ">>>>>>> REPLACE" markers');
     }
     
     // Extract search and replace content

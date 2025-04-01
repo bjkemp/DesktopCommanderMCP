@@ -134,21 +134,13 @@ The server provides these tool categories:
 Search/Replace Block Format:
 ```
 filepath.ext
-<<<<<<< SEARCH
-content to find
-=======
 new content
->>>>>>> REPLACE
 ```
 
 Example:
 ```
 src/main.js
-<<<<<<< SEARCH
-console.log("old message");
-=======
 console.log("new message");
->>>>>>> REPLACE
 ```
 
 ## Handling Long-Running Commands
